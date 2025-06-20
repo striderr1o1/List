@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Number Directory - Police Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: white;
+            color: black;
+            padding: 40px;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid black;
+            background: white;
+        }
+
+        .header {
+            border-bottom: 2px solid black;
+            padding: 20px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .case-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .case-info div {
+            text-align: left;
+        }
+
+        .search-section {
+            padding: 20px 30px;
+            border-bottom: 1px solid black;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid black;
+            font-size: 14px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .search-box:focus {
+            outline: 2px solid black;
+        }
+
+        .phone-list {
+            padding: 0;
+        }
+
+        .list-header {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            border-bottom: 2px solid black;
+            background: #f0f0f0;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .list-header div {
+            padding: 12px 15px;
+            border-right: 1px solid black;
+        }
+
+        .list-header div:last-child {
+            border-right: none;
+        }
+
+        .phone-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            border-bottom: 1px solid black;
+            font-size: 14px;
+        }
+
+        .phone-item div {
+            padding: 10px 15px;
+            border-right: 1px solid black;
+        }
+
+        .phone-item div:last-child {
+            border-right: none;
+        }
+
+        .item-number {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .phone-number {
+            font-family: 'Courier New', monospace;
+            font-weight: normal;
+        }
+
+        .footer {
+            padding: 20px 30px;
+            border-top: 2px solid black;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+            font-size: 12px;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid black;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+
+        .total-count {
+            text-align: right;
+            font-size: 12px;
+            margin-bottom: 10px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            .signatures {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PHONE NUMBER DIRECTORY</h1>
+            <p>INVESTIGATION</p>
+            <div class="case-info">
+                <div>Case No: 2025-06-20-001</div>
+                <div>Date: June 20, 2025</div>
+                <div>Investigator: Ranger</div>
+                <div>Department: -</div>
+            </div>
+        </div>
+        
+        <div class="search-section">
+            <label for="searchInput" style="font-size: 12px; font-weight: bold;">SEARCH NUMBERS:</label>
+            <input type="text" class="search-box" placeholder="Enter phone number to search..." id="searchInput">
+        </div>
+        
+        <div class="phone-list">
+            <div class="total-count" id="totalCount">TOTAL NUMBERS: 20</div>
+            
+            <div class="list-header">
+                <div>REF #</div>
+                <div>PHONE NUMBER</div>
+            </div>
+            
+            <div class="phone-item" data-number="12345678901">
+                <div class="item-number">001</div>
+                <div class="phone-number">+2 (234) 567-8901</div>
+            </div>
+            
+            <div class="phone-item" data-number="19876543210">
+                <div class="item-number">002</div>
+                <div class="phone-number">+4 (987) 654-3210</div>
+            </div>
+            
+            <div class="phone-item" data-number="15551234567">
+                <div class="item-number">003</div>
+                <div class="phone-number">+92 324-9220431</div>
+            </div>
+            
+            <div class="phone-item" data-number="14449876543">
+                <div class="item-number">004</div>
+                <div class="phone-number">+1 (444) 987-6543</div>
+            </div>
+            
+            <div class="phone-item" data-number="13334567890">
+                <div class="item-number">005</div>
+                <div class="phone-number">+1 (333) 456-7890</div>
+            </div>
+            
+            <div class="phone-item" data-number="12223456789">
+                <div class="item-number">006</div>
+                <div class="phone-number">+8 (222) 345-6789</div>
+            </div>
+            
+            <div class="phone-item" data-number="16667778888">
+                <div class="item-number">007</div>
+                <div class="phone-number">+64 (666) 777-8888</div>
+            </div>
+            
+            <div class="phone-item" data-number="11112223333">
+                <div class="item-number">008</div>
+                <div class="phone-number">+71 (111) 222-3333</div>
+            </div>
+            
+            <div class="phone-item" data-number="19998887777">
+                <div class="item-number">009</div>
+                <div class="phone-number">+3 (999) 888-7777</div>
+            </div>
+            
+            <div class="phone-item" data-number="17776665555">
+                <div class="item-number">010</div>
+                <div class="phone-number">+88 (777) 666-5555</div>
+            </div>
+            
+            <div class="phone-item" data-number="18889990000">
+                <div class="item-number">011</div>
+                <div class="phone-number">+96 (888) 999-0000</div>
+            </div>
+            
+            <div class="phone-item" data-number="15554443333">
+                <div class="item-number">012</div>
+                <div class="phone-number">+11 (555) 444-3333</div>
+            </div>
+            
+            <div class="phone-item" data-number="11234567890">
+                <div class="item-number">013</div>
+                <div class="phone-number">+15 (123) 456-7890</div>
+            </div>
+            
+            <div class="phone-item" data-number="19871234567">
+                <div class="item-number">014</div>
+                <div class="phone-number">+1 (987) 123-4567</div>
+            </div>
+            
+            <div class="phone-item" data-number="14567890123">
+                <div class="item-number">015</div>
+                <div class="phone-number">+25 (456) 789-0123</div>
+            </div>
+            
+            <div class="phone-item" data-number="13216549870">
+                <div class="item-number">016</div>
+                <div class="phone-number">+10 (321) 654-9870</div>
+            </div>
+            
+            <div class="phone-item" data-number="17418529630">
+                <div class="item-number">017</div>
+                <div class="phone-number">+19 (741) 852-9630</div>
+            </div>
+            
+            <div class="phone-item" data-number="19630741852">
+                <div class="item-number">018</div>
+                <div class="phone-number">+50 (963) 074-1852</div>
+            </div>
+            
+            <div class="phone-item" data-number="15679432108">
+                <div class="item-number">019</div>
+                <div class="phone-number">+1 (567) 943-2108</div>
+            </div>
+            
+            <div class="phone-item" data-number="18520963741">
+                <div class="item-number">020</div>
+                <div class="phone-number">+96 (852) 096-3741</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>INVESTIGATION DOCUMENT</strong></p>
+            <p>This document contains dummy phone numbers used for investigation.</p>
+            
+            
+            <div class="signatures">
+                <div>
+                    <div class="signature-line"></div>
+                    <p>Investigating Officer Signature</p>
+                </div>
+                <div>
+                    <div class="signature-line"></div>
+                    <p>Supervisor Signature</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const phoneItems = document.querySelectorAll('.phone-item');
+        const totalCount = document.getElementById('totalCount');
+
+        function updateCount() {
+            const visibleItems = document.querySelectorAll('.phone-item:not(.hidden)').length;
+            totalCount.textContent = `SHOWING: ${visibleItems} OF ${phoneItems.length} NUMBERS`;
+        }
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.replace(/[^\d]/g, '');
+            
+            phoneItems.forEach(item => {
+                const number = item.getAttribute('data-number');
+                
+                if (number.includes(searchTerm) || searchTerm === '') {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            
+            updateCount();
+        });
+
+        updateCount();
+    </script>
+</body>
+</html>
